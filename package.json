@@ -1,14 +1,13 @@
 {
   "name": "@fannithm/utils",
   "version": "0.1.0-snapshot.1",
-  "main": "dist/index.js",
+  "main": "dist/src/index.js",
   "license": "AGPL-3.0",
   "scripts": {
     "clean": "del-cli -f coverage dist .nyc_output",
     "test": "ava",
     "build": "tsc",
-    "build:all": "yarn clean & yarn build & yarn build:coverage",
-    "build:coverage": "nyc ava",
+    "coverage": "nyc ava",
     "watch:test": "ava -w",
     "watch:build": "tsc -w"
   },

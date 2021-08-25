@@ -1,2 +1,12 @@
-node_modules/
 .github/
+.nyc_output/
+coverage/
+dist/test/
+node_modules/
+src/
+test/
+.editorconfig
+.gitignore
+.npmignore
+.nycrc.json
+tsconfig.json
