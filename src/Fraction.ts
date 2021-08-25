@@ -1,4 +1,5 @@
 import { MathUtils } from '.';
+import { DenominatorZeroError } from './Error';
 
 /**
  * # The Fraction class
@@ -17,7 +18,7 @@ export class Fraction {
 	 * @param frac See {@link IFraction}
 	 */
 	constructor(frac: IFraction) {
-		if (frac[3] === 0) throw 'Denominator cannot be zero.';
+		if (frac[3] === 0) throw new DenominatorZeroError(frac);
 		this._frac = frac;
 	}
 
@@ -36,23 +37,6 @@ export class Fraction {
 	}
 
 	/**
-	 * Compare if this is greater than another fraction
-	 * @param frac fraction to compare
-	 * @returns `true` if given fraction is greater than this
-	 */
-	gt(frac: Fraction): boolean {
-		if (this.sign > 0 && frac.sign < 0) return true;
-		else if (this.sign > 0 && frac.sign > 0) {
-			if (this.integer > frac.integer) return true;
-			else if (this.integer === frac.integer) {
-				if (this.denominator === frac.denominator) return this.numerator > frac.numerator;
-				else return this.numerator * frac.denominator > frac.numerator * this.denominator;
-			} else return false;
-		}
-		else return !this.opposite.gt(frac.opposite);
-	}
-
-	/**
 	 * Compare if this is equal to another fraction
 	 * @param frac fraction to compare
 	 * @returns `true` if given fraction is equal to this
@@ -64,6 +48,23 @@ export class Fraction {
 			frac1.integer === frac2.integer &&
 			frac1.numerator === frac2.numerator &&
 			frac1.denominator === frac2.denominator;
+	}
+
+	/**
+	 * Compare if this is greater than another fraction
+	 * @param frac fraction to compare
+	 * @returns `true` if given fraction is greater than this
+	 */
+	gt(frac: Fraction): boolean {
+		if (this.sign > 0 && frac.sign < 0) return true;
+		else if (this.sign > 0 && frac.sign > 0) {
+			if (this.integer > frac.integer) return true;
+			else if (this.integer === frac.integer) {
+				if (this.denominator === frac.denominator) return this.numerator > frac.numerator;
+				else return this.reduceToCommonDenominator(frac).numerator > frac.reduceToCommonDenominator(this).numerator;
+			} else return false;
+		}
+		else return !this.opposite.gt(frac.opposite);
 	}
 
 	/**
@@ -130,9 +131,7 @@ export class Fraction {
 					frac1.numerator - frac2.numerator,
 					frac1.denominator
 				]).simplified;
-			} else {
-				return frac.minus(this).opposite;
-			}
+			} else return frac.minus(this).opposite;
 		} else return this.opposite.minus(frac.opposite).opposite;
 	}
 
@@ -189,7 +188,7 @@ export class Fraction {
 		if (frac.numerator >= frac.denominator) {
 			const r = Math.floor(frac.numerator / frac.denominator);
 			frac.numerator -= r * frac.denominator;
-			frac.denominator += r;
+			frac.integer += r;
 		}
 		return frac;
 	}
