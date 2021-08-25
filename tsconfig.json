@@ -1,0 +1,13 @@
+{
+	"include": [
+		"src/*.ts",
+		"test/*.ts"
+	],
+	"compilerOptions": {
+		"declaration": true,
+		"outDir": "dist",
+		"module": "Commonjs",
+		"target": "ES6",
+		"sourceMap": true
+	}
+}
