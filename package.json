@@ -1,6 +1,7 @@
 {
   "name": "@fannithm/utils",
-  "version": "0.1.0-snapshot.2",
+  "description": "Utilities lib for Project Fannithm",
+  "version": "0.1.0-snapshot.3",
   "main": "dist/src/index.js",
   "license": "AGPL-3.0",
   "scripts": {

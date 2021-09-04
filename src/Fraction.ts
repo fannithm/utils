@@ -11,7 +11,7 @@ import { DenominatorZeroError } from './Error';
  * ```
  */
 export class Fraction {
-	private _frac: IFraction;
+	private frac: IFraction;
 
 	/**
 	 * Create a fraction
@@ -19,7 +19,7 @@ export class Fraction {
 	 */
 	constructor(frac: IFraction) {
 		if (frac[3] === 0) throw new DenominatorZeroError(frac);
-		this._frac = frac;
+		this.frac = frac;
 	}
 
 	/**
@@ -204,14 +204,14 @@ export class Fraction {
 	 * Get the fraction
 	 */
 	get fraction(): IFraction {
-		return [...this._frac];
+		return [...this.frac];
 	}
 
 	/**
 	 * Set the fraction
 	 */
 	set fraction(fraction: IFraction) {
-		this._frac = fraction;
+		this.frac = fraction;
 	}
 
 	/**
@@ -239,56 +239,56 @@ export class Fraction {
 	 * Get the sign of the fraction
 	 */
 	get sign(): number {
-		return this._frac[0];
+		return this.frac[0];
 	}
 
 	/**
 	 * Set the sign of the fraction
 	 */
 	set sign(sign: number) {
-		this._frac[0] = sign;
+		this.frac[0] = sign;
 	}
 
 	/**
 	 * Get the integer part of the fraction
 	 */
 	get integer(): number {
-		return this._frac[1];
+		return this.frac[1];
 	}
 
 	/**
-	 * Get the integer part of the fraction
+	 * Set the integer part of the fraction
 	 */
 	set integer(integer: number) {
-		this._frac[1] = integer;
+		this.frac[1] = integer;
 	}
 
 	/**
 	 * Get the numerator of the fraction
 	 */
 	get numerator(): number {
-		return this._frac[2];
+		return this.frac[2];
 	}
 
 	/**
 	 * Set the numerator of the fraction
 	 */
 	set numerator(numerator: number) {
-		this._frac[2] = numerator;
+		this.frac[2] = numerator;
 	}
 
 	/**
 	 * Get the denominator of the fraction
 	 */
 	get denominator(): number {
-		return this._frac[3];
+		return this.frac[3];
 	}
 
 	/**
 	 * Set the denominator of the fraction
 	 */
 	set denominator(denominator: number) {
-		this._frac[3] = denominator;
+		this.frac[3] = denominator;
 	}
 }
 

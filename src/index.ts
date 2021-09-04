@@ -1,5 +1,5 @@
 /**
- * # Utilities lib for Fannithm Project
+ * # Utilities lib for Project Fannithm
  *
  * @module @fannithm/utils
  */

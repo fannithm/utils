@@ -3,7 +3,7 @@
  */
 export class MathUtils {
 	/**
-	 * Calculate the greatest common divisor of the number a and b
+	 * Calculate the greatest common divisor of the number a and b.
 	 * @param a number a
 	 * @param b number b
 	 * @returns the greatest common divisor
@@ -19,7 +19,7 @@ export class MathUtils {
 	}
 
 	/**
-	 * Calculate the least common multiple  of the number a and b
+	 * Calculate the least common multiple  of the number a and b.
 	 * @param a number a
 	 * @param b number b
 	 * @returns the least common multiple

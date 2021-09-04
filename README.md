@@ -2,7 +2,7 @@
 
 [![Workflow Status](https://img.shields.io/github/workflow/status/fannithm/utils/github-package)](https://github.com/fannithm/utils/actions/workflows/publish.yml) [![Coverage Status](https://coveralls.io/repos/github/fannithm/utils/badge.svg?branch=master)](https://coveralls.io/github/fannithm/utils?branch=master) [![GitHub version](https://badge.fury.io/gh/fannithm%2Fconst.svg)](https://github.com/fannithm/utils/packages/)
 
-Utilities lib for Fannithm Project
+Utilities lib for Project Fannithm
 
 ## Installation
 
